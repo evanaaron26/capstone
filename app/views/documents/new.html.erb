@@ -1,0 +1,26 @@
+<% @documents.each do |document| %> 
+
+    <div>
+        <h4><%= link_to "#{document.file_name}", "/documents/#{document.id}" %></h4>
+    </div>
+    <div>
+        <h5><%= document.file_text %></h5>
+        <h5><%= document.location.name %></h5>
+        <h5><%= document.location.latitude %></h5>
+        <h5><%= document.location.longitude %></h5>
+    </div>
+<% end %>
+
+<%= form_tag '/documents', method: :post do %>
+    file_name
+    <%= text_field_tag :file_name %>
+    <br>
+    file_text
+    <%= text_field_tag :file_text %> 
+    <%= collection_select(:location, :location_id, @locations, :id, :name) %> 
+    <%= submit_tag "Add new document"%>
+<% end %>  
+
+
+
+    

@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
     def index
-        @documents = Document.all
+        
     end
 
     def show
@@ -8,18 +8,18 @@ class DocumentsController < ApplicationController
     end
 
     def new 
-
+        @documents = Document.all
+        @locations = Location.all
     end 
 
     def create 
-        @documents = Document.new(
-            name: params[:name],
-            latitude: params[:latitude],
-            longitude: params[:longitude],
-            distance_to: params[:distance_to]                
+        @document = Document.new(
+            file_name: params[:file_name],
+            location_id: params[:location][:location_id],
+            file_text: params[:file_text]                  
             )
 
-        @documents.save
+        @document.save
         flash[:success] = "document created"
         redirect_to "/documents/#{@document.id}"
     end 

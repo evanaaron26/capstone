@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170213231209) do
 
   create_table "documents", force: :cascade do |t|
     t.string   "file_name"
-    t.string   "access_code"
+    t.text     "file_text"
     t.integer  "location_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
