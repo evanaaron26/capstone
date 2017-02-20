@@ -12,16 +12,16 @@ class LocationsController < ApplicationController
     end 
 
     def create 
-        @locations = Location.new(
+        @location = Location.new(
             name: params[:name],
             latitude: params[:latitude],
             longitude: params[:longitude],
             distance_to: params[:distance_to]
             )
 
-        @locations.save
+        @location.save
         flash[:success] = "location created"
-        redirect_to "/locations/#{@location.id}"
+        redirect_to "/documents/new"
     end 
 
 end

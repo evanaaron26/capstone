@@ -4,7 +4,7 @@ class DocumentsController < ApplicationController
     end
 
     def show
-        @documents = Document.find(params[:id])
+        @document = Document.find(params[:id])
     end
 
     def new 
@@ -21,7 +21,7 @@ class DocumentsController < ApplicationController
 
         @document.save
         flash[:success] = "document created"
-        redirect_to "/documents/#{@document.id}"
+        redirect_to "/documents/new"
     end 
 
 end

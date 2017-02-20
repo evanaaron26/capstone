@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     patch '/documents/:id' => 'documents#update'
     delete '/documents/:id' => 'documents#destroy'
 
+    post '/locations' => 'locations#create'
 
 
 end

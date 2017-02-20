@@ -16,10 +16,28 @@
     <%= text_field_tag :file_name %>
     <br>
     file_text
-    <%= text_field_tag :file_text %> 
+  <!--   < %= text_field_tag :file_text %> -->
+    <%= text_area(:file_text, :documents, cols: "30", rows: "10") %>  
     <%= collection_select(:location, :location_id, @locations, :id, :name) %> 
     <%= submit_tag "Add new document"%>
+ <% end %>    
+    <hr>
+<%= form_tag '/locations', method: :post do %>
+    Location name
+    <%= text_field_tag :name %>
+    <br>
+    latitude
+    <%= text_field_tag :latitude %>
+    <br> 
+    longitude 
+    <%= text_field_tag :longitude %>
+    <br>
+    Distance to 
+    <%= text_field_tag :distance_to %>
+    <%= submit_tag "Add new location"%>   
 <% end %>  
+
+
 
 
 
