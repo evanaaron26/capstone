@@ -11,11 +11,6 @@
     </div>
 <% end %>
 
-<% if @documents.length == 0 %> 
-<h1> hello </h1>
-<% end %> 
-<%= current_user.id %> 
-
 <%= form_tag '/documents', method: :post do %>
     file_name
     <%= text_field_tag :file_name %>
@@ -26,18 +21,22 @@
       :rows => 10, :cols => 50) %>  
     <%= collection_select(:location, :location_id, @locations, :id, :name) %> 
     <%= submit_tag "Add new document"%>
-   
-<% end %>
-
-<%= form_tag '/locations/new', method: :get do %>
-    
-    <%= submit_tag "Add new location"%>
-   
-<% end %>
-    
-
-   
-   
+ <% end %>    
+    <hr>
+<%= form_tag '/locations', method: :post do %>
+    Location name
+    <%= text_field_tag :name %>
+    <br>
+    latitude
+    <%= text_field_tag :latitude %>
+    <br> 
+    longitude 
+    <%= text_field_tag :longitude %>
+    <br>
+    Distance to 
+    <%= text_field_tag :distance_to %>
+    <%= submit_tag "Add new location"%>   
+<% end %>  
 
 
 

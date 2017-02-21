@@ -8,11 +8,21 @@ class DocumentsController < ApplicationController
     end
 
     def new 
-        @documents = Document.all
+        user = User.find(current_user.id)
+        @documents = user.documents
         @locations = Location.all
     end 
 
     def create 
+        @location = Location.new(
+            name: params[:name],
+            latitude: params[:latitude],
+            longitude: params[:longitude],
+            distance_to: params[:distance_to]
+            )
+
+        @location.save
+
         @document = Document.new(
             file_name: params[:file_name],
             location_id: params[:location][:location_id],
