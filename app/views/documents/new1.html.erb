@@ -20,7 +20,7 @@
     <%= text_area_tag(:file_text, nil,  
       :rows => 10, :cols => 50) %>  
     <%= collection_select(:location, :location_id, @locations, :id, :name) %> 
-    <%= submit_tag "Add new document"%>
+    <%= submit_tag "Add new document", class: "btn btn-info" %>
  <% end %>    
     <hr>
 <%= form_tag '/locations', method: :post do %>
@@ -35,7 +35,7 @@
     <br>
     Distance to 
     <%= text_field_tag :distance_to %>
-    <%= submit_tag "Add new location"%>   
+    <%= submit_tag "Add new location", class: "btn btn-info" %>   
 <% end %>  
 
 

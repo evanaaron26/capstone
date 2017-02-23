@@ -1,0 +1,13 @@
+<h2><%= @location.name %> </h2>
+
+<%= form_tag "/locations/useradd", method: :post do %> 
+
+<%= label_tag :email, "Email" %> 
+
+<%= hidden_field_tag :location, @location.id %>
+
+<%= text_field_tag :email %>
+
+<%= submit_tag "Add user", class: "btn btn-info" %> 
+
+<% end %>

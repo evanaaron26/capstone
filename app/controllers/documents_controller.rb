@@ -10,7 +10,7 @@ class DocumentsController < ApplicationController
     def new 
         user = User.find(current_user.id)
         @documents = user.documents
-        @locations = Location.all
+        @locations = Location.where(user_id: current_user.id)
     end 
 
     def create 
@@ -30,8 +30,35 @@ class DocumentsController < ApplicationController
             )
 
         @document.save
+        @user_document = UserDocument.new(
+            user_id: current_user.id, 
+            document_id: @document.id  
+            )
+        @user_document.save
         flash[:success] = "document created"
         redirect_to "/documents/new"
     end 
+
+    def edit 
+        @document = Document.find(params[:id])
+    end 
+
+    def update
+        @document = Document.find(params[:id])
+        @document.assign_attributes(
+            file_name: params[:file_name],
+            file_text: params[:file_text]
+            )
+        @document.save
+        flash[:success] = "Document updated"
+        redirect_to "/documents/#{@document.id}"
+    end 
+
+    def destroy
+        @document = Document.find(params[:id])
+        @document.destroy
+        flash[:success] = "Document deleted"
+        redirect_to "/documents/new"
+    end
 
 end

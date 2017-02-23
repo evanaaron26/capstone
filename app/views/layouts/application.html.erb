@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <div class="container">
+    
+    <% if current_user %>
+     <%= link_to "Home", "/documents/new" %>  
+    <% end %> 
+
     <div>
         <%= flash[:warning] %> 
         <%= flash[:success] %> 
@@ -24,5 +30,6 @@
     <% end %> 
     
     <%= yield %>
+  </div>
   </body>
 </html>

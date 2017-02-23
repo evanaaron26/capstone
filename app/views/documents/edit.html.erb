@@ -1,0 +1,21 @@
+<h1>Edit document </h1>
+
+<%= form_tag "/documents/#{@document.id}", method: :patch do %> 
+<div> 
+    <%= label_tag :file_name %> 
+    <%= text_field_tag :file_name, @document.file_name %> 
+</div>
+<br>
+<div>
+<div> 
+    <%= label_tag :file_text %> 
+    <br>
+    <%= text_area_tag(:file_text, @document.file_text,  
+      :rows => 20, :cols => 70) %>
+</div>
+<div>
+<%= submit_tag "update the document", class: "btn btn-info" %> 
+</div>
+<% end %>
+
+

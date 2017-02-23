@@ -18,5 +18,7 @@ Rails.application.routes.draw do
     get '/locations/new' => 'locations#new'
     post '/locations' => 'locations#create'
 
+    get '/locations/users/:id' => 'locations#users'
+    post '/locations/useradd' => 'locations#useradd'
 
 end

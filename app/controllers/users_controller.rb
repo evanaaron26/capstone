@@ -22,7 +22,7 @@ class UsersController < ApplicationController
         if @user.save 
             session[:user_id] = @user.id 
             flash[:success] = "User created"
-            redirect_to '/documents/new'
+            redirect_to '/locations/new'
         else 
             flash[:warning] = "Invalid password"
             redirect_to '/signup'
