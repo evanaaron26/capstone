@@ -1,0 +1,13 @@
+<h1>Edit Location </h1>
+
+<%= form_tag "/users/#{current_user.id}", method: :patch do %> 
+<div> 
+    <%= label_tag :current_location %> 
+    <%= text_field_tag :current_location, 
+    @current_location %> 
+</div>
+<br>
+<div>
+<%= submit_tag "update the location", class: "btn btn-info" %> 
+</div>
+<% end %>

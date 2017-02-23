@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     get '/login' => 'sessions#new'
     post '/login' => 'sessions#create'
     get '/logout' => 'sessions#destroy'
-
+    get '/users/:id/edit' => 'users#edit'
+    patch '/users/:id' => 'users#update'
     get '/documents' => 'documents#index'
     get '/documents/new' => 'documents#new'
     post '/documents' => 'documents#create'
@@ -15,8 +16,10 @@ Rails.application.routes.draw do
     patch '/documents/:id' => 'documents#update'
     delete '/documents/:id' => 'documents#destroy'
 
+
     get '/locations/new' => 'locations#new'
     post '/locations' => 'locations#create'
+    get '/locations/:id' => 'locations#show'
 
     get '/locations/users/:id' => 'locations#users'
     post '/locations/useradd' => 'locations#useradd'

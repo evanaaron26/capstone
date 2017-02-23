@@ -29,4 +29,18 @@ class UsersController < ApplicationController
         end 
     end  
 
+    def edit 
+        @user = User.find(current_user.id)
+    end 
+
+    def update
+        @user = User.find(params[:id])
+        @user.assign_attributes(
+            current_location: params[:current_location]
+            )
+        @user.save
+        flash[:success] = "Location updated"
+        redirect_to "/documents/new" 
+    end 
+
 end

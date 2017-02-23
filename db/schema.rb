@@ -24,13 +24,14 @@ ActiveRecord::Schema.define(version: 20170213231209) do
   end
 
   create_table "locations", force: :cascade do |t|
-    t.decimal  "latitude",    precision: 9, scale: 6
-    t.decimal  "longitude",   precision: 9, scale: 6
-    t.decimal  "distance_to", precision: 9, scale: 6
+    t.float    "latitude"
+    t.float    "longitude"
+    t.float    "distance_to"
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "address"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "user_documents", force: :cascade do |t|
@@ -51,8 +52,9 @@ ActiveRecord::Schema.define(version: 20170213231209) do
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "current_location"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end

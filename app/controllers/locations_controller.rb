@@ -1,10 +1,14 @@
 class LocationsController < ApplicationController
     def index
+      if params[:search].present?
+        @locations = Location.near(params[:search], 50, :order => :distance)
+      else
         @locations = Location.all
+      end
     end
 
     def show
-        @locations = Location.find(params[:id])
+        @location = Location.find(params[:id])
     end
 
     def new 
@@ -14,15 +18,13 @@ class LocationsController < ApplicationController
     def create 
         @location = Location.new(
             name: params[:name],
-            latitude: params[:latitude],
-            longitude: params[:longitude],
-            distance_to: params[:distance_to],
+            address: params[:address],
             user_id: current_user.id
             )
 
         @location.save
         flash[:success] = "location created"
-        redirect_to "/documents/new"
+        redirect_to "/locations/#{@location.id}"
     end 
 
     def users

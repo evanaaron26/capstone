@@ -12,7 +12,13 @@
     <div class="container">
     
     <% if current_user %>
-     <%= link_to "Home", "/documents/new" %>  
+     <%= link_to "Home", "/documents/new" %> 
+     - 
+     <% @user = User.find(current_user.id) %>
+     <%= @user.current_location %> 
+     - 
+     <%= link_to "update current location", "/users/#{current_user.id}/edit" %>
+       
     <% end %> 
 
     <div>
