@@ -1,10 +1,13 @@
 class DocumentsController < ApplicationController
     def index
-        
+        user = User.find(current_user.id)
+        @documents = user.documents
+        @locations = Location.where(user_id: current_user.id)
     end
 
     def show
         @document = Document.find(params[:id])
+        @locations = Location.where(user_id: current_user.id)
     end
 
     def new 
@@ -36,7 +39,7 @@ class DocumentsController < ApplicationController
             )
         @user_document.save
         flash[:success] = "document created"
-        redirect_to "/documents/new"
+        redirect_to "/documents"
     end 
 
     def edit 

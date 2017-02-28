@@ -40,7 +40,7 @@ class UsersController < ApplicationController
             )
         @user.save
         flash[:success] = "Location updated"
-        redirect_to "/documents/new" 
+        redirect_to "/documents" 
     end 
 
 end

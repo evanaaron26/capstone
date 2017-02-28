@@ -2,24 +2,56 @@
 
 <h4>Document text: <%= @document.file_text %></h4>
 
+<h4><%= link_to "Edit Document", "/documents/#{@document.id}/edit", class: "btn btn-info" %>
+
+<h4><%= link_to "Destroy Document", "/documents/#{@document.id}", method: :delete, class: "btn btn-info" %>
+
+<h3>Add Document</h3>
+<%= form_tag '/documents', method: :post do %>
+    file_name
+    <br/>
+    <br/>
+    <%= text_field_tag :file_name %>
+    <br/>
+    <br/>
+    file_text
+    <br/>
+    <br/>
+  <!--   < %= text_field_tag :file_text %> -->
+    <%= text_area_tag(:file_text, nil,  
+      :rows => 10, :cols => 50) %>  
+    <br/>
+    <br/>
+    <%= collection_select(:location, :location_id, @locations, :id, :name) %> 
+    <br/>
+    <br/>
+    <%= submit_tag "Add new document", class: "btn btn-info" %>
+
+
+
+<h3>Add User</h3> <%= link_to "Add User", "/locations/users/#{@document.location.id}", class: "btn btn-info" %>
+
+<h3> Users assigned </h3>
+<ul>    <% @document.location.users.each do |user| %> 
+<li>  <%= user.email %> </li>
+    <% end %>  
+</ul>
+
+<% end %>
+
+<h3>Current Location </h3>
+
 <h4>Document location: <%= @document.location.name %></h4>
 
 <h4>Document latitude: <%= @document.location.latitude %></h4>
 
 <h4>Document longitude: <%= @document.location.longitude %></h4>
 
-<h4> Users assigned </h4>
-<ul>    <% @document.location.users.each do |user| %> 
-<li>  <%= user.email %> </li>
-    <% end %>  
-</ul>
-
-
-
-
-<h4><%= link_to "Edit", "/documents/#{@document.id}/edit" %>
-
-<h4><%= link_to "Destroy", "/documents/#{@document.id}", method: :delete %>
+<%= form_tag '/locations/new', method: :get do %>
+    
+    <%= submit_tag "Add new location", class: "btn btn-info" %>
+   
+<% end %>
 
 
 

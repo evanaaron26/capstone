@@ -1,35 +1,39 @@
-THIS IS NEWWWWWWW
+
+<h3>Documents </h3>
+
 
 <% @documents.each do |document| %> 
 
     <div>
-        <h4><%= link_to "#{document.file_name}", "/documents/#{document.id}" %></h4>
-    </div>
-    <div>
-        <h5><%= document.file_text %></h5>
-        <h5><%= document.location.name %></h5>
-        <h5><%= document.location.latitude %></h5>
-        <h5><%= document.location.longitude %></h5>
-
-    </div>
+        <%= document.location.name %> <%= link_to "#{document.file_name}", "/documents/#{document.id}" %>
+    </div>   
 <% end %>
 
 <% if @documents.length == 0 %> 
 <h1> hello </h1>
 <% end %> 
 
-
+<h3>Add Document</h3>
 <%= form_tag '/documents', method: :post do %>
     file_name
+    <br/>
+    <br/>
     <%= text_field_tag :file_name %>
-    <br>
+    <br/>
+    <br/>
     file_text
+    <br/>
+    <br/>
   <!--   < %= text_field_tag :file_text %> -->
     <%= text_area_tag(:file_text, nil,  
       :rows => 10, :cols => 50) %>  
+    <br/>
+    <br/>
     <%= collection_select(:location, :location_id, @locations, :id, :name) %> 
+    <br/>
+    <br/>
     <%= submit_tag "Add new document", class: "btn btn-info" %>
-   
+
 <% end %>
 
 <%= form_tag '/locations/new', method: :get do %>
@@ -37,6 +41,8 @@ THIS IS NEWWWWWWW
     <%= submit_tag "Add new location", class: "btn btn-info" %>
    
 <% end %>
+
+
 
 
    
