@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id 
             flash[:success] = 'Succcessfully created user'
-            redirect_to '/documents/new'
+            redirect_to '/documents'
         else
             flash[:warning] = 'Invalid username and password'
             redirect_to '/login'

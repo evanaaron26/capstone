@@ -18,7 +18,9 @@
      <%= @user.current_location %> 
      - 
      <%= link_to "update current location", "/users/#{current_user.id}/edit" %>
-       
+      <br> 
+      <h5> Current user email </h5>
+     <%= @user.email %> 
     <% end %> 
 
     <div>
@@ -28,6 +30,8 @@
 <!--     <a href="/logout">Logout</a>
     <a href="/signup">Signup</a>
     <a href="/login">Login</a> -->
+    
+  <br>
     <% if current_user %>
       <a href="/logout">Logout</a>
     <% else %> 

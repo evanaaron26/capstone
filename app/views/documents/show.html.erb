@@ -1,3 +1,10 @@
+
+<h3> Distance to document </h3>
+
+<%= @document.location.distance_to(@current_user.current_location).to_i %> miles
+
+<% if @document.location.distance_to(@current_user.current_location) < 1 %>
+
 <h3>Document name: <%= @document.file_name %></h3>
 
 <h4>Document text: <%= @document.file_text %></h4>
@@ -52,6 +59,15 @@
     <%= submit_tag "Add new location", class: "btn btn-info" %>
    
 <% end %>
+
+
+<% else %> 
+
+You are not within proximity to this document
+
+<% end %> 
+
+
 
 
 
