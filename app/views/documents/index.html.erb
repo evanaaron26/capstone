@@ -14,8 +14,16 @@
 <% end %> 
 
 <h3>Add Document</h3>
-<%= form_tag '/documents', method: :post do %>
+
+<%= form_tag('/documents', multipart: true, method: :post) do %>
+
     file_name
+    <%= text_field_tag :file_name %>
+    <br>
+    
+    image
+    <%= file_field_tag :image %>
+    <br>
     <br/>
     <br/>
     <%= text_field_tag :file_name %>
