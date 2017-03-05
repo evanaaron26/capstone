@@ -1,7 +1,10 @@
+<p><%= link_to image_tag(@document.image.url(:medium)), @document.image.url %>
+</p>
+
 
 <h3> Distance to document </h3>
 
-<%= @document.location.distance_to(@current_user.current_location).to_i %> miles
+<!-- < % = @document.location.distance_to(@current_user.current_location).to_i % > miles -->
 
 <% if @document.location.distance_to(@current_user.current_location) < 1 %>
 

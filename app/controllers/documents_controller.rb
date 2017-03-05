@@ -17,29 +17,30 @@ class DocumentsController < ApplicationController
     end 
 
     def create 
+        user = User.find(current_user.id)
+
         @location = Location.new(
             name: params[:name],
             latitude: params[:latitude],
-            longitude: params[:longitude],
-            distance_to: params[:distance_to]
+            longitude: params[:longitude]
             )
-
         @location.save
-
         @document = Document.new(
+            image: params[:image],
             file_name: params[:file_name],
             location_id: params[:location][:location_id],
             file_text: params[:file_text]                  
             )
-
-        @document.save
+        if @document.save
+            flash[:success] = "document created"
+        end
         @user_document = UserDocument.new(
             user_id: current_user.id, 
             document_id: @document.id  
             )
         @user_document.save
-        flash[:success] = "document created"
-        redirect_to "/documents"
+        # flash[:success] = "document created"
+        redirect_to "/documents/new"
     end 
 
     def edit 
