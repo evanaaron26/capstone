@@ -17,31 +17,27 @@
 
 <%= form_tag('/documents', multipart: true, method: :post) do %>
 
-    file_name
+
+    file name
     <%= text_field_tag :file_name %>
     <br>
-    
-    image
+    <br> 
+    Image
+    <br>
     <%= file_field_tag :image %>
     <br>
-    <br/>
-    <br/>
-    <%= text_field_tag :file_name %>
-    <br/>
-    <br/>
-    file_text
-    <br/>
-    <br/>
+    file text
+    <br>
   <!--   < %= text_field_tag :file_text %> -->
     <%= text_area_tag(:file_text, nil,  
       :rows => 10, :cols => 50) %>  
     <br/>
     <br/>
-    <%= collection_select(:location, :location_id, @locations, :id, :name) %> 
-    <br/>
-    <br/>
+    <%= collection_select(:location, :location_id, @locations, :id, :name) %>
+    <br>
+    <br>
     <%= submit_tag "Add new document", class: "btn btn-info" %>
-
+    <br> 
 <% end %>
 
 <%= form_tag '/locations/new', method: :get do %>
@@ -50,6 +46,25 @@
    
 <% end %>
 
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+<script>
+var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
+}
+</script>
 
 
 
