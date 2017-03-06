@@ -35,8 +35,14 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
+        first_result = Geocoder.search(params[:current_location]).first
+        if first_result.present? 
+            first_result = first_result.address
+        end 
+        p '-----------------------'
+        p first_result
         @user.assign_attributes(
-            current_location: params[:current_location]
+            current_location: first_result
             )
         @user.save
         flash[:success] = "Location updated"

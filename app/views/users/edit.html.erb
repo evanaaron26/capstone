@@ -3,11 +3,30 @@
 <%= form_tag "/users/#{current_user.id}", method: :patch do %> 
 <div> 
     <%= label_tag :current_location %> 
-    <%= text_field_tag :current_location, 
-    @current_location %> 
+    <%= text_field_tag :current_location, id: 'current_location' %> 
 </div>
-<br>
+<br
 <div>
 <%= submit_tag "update the location", class: "btn btn-info" %> 
 </div>
 <% end %>
+
+<script>
+
+window.onload = getLocation();
+document.getElementById("current_location").value = 'Please wait a moment';
+var x = document.getElementById("current_location");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+    x.value = position.coords.latitude + " , " + position.coords.longitude; 
+}
+
+
+</script>
