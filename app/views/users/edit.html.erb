@@ -3,7 +3,7 @@
 <%= form_tag "/users/#{current_user.id}", method: :patch do %> 
 <div> 
     <%= label_tag :current_location %> 
-    <%= text_field_tag :current_location, id: 'current_location' %> 
+    <%= text_field_tag :current_location, size: 90, id: 'current_location' %> 
 </div>
 <br
 <div>

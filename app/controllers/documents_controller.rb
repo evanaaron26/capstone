@@ -3,6 +3,14 @@ class DocumentsController < ApplicationController
         user = User.find(current_user.id)
         @documents = user.documents
         @locations = Location.where(user_id: current_user.id)
+        all_documents = Document.all 
+        @nearby_documents = []
+        all_documents.each do |document|
+            if document.location.distance_to(user.current_location) < 1
+                @nearby_documents << document 
+            end
+        end  
+
     end
 
     def show

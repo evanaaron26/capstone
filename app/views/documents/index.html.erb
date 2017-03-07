@@ -1,8 +1,8 @@
 
 <h3>Documents </h3>
 
-
-<% @documents.each do |document| %> 
+<br> You have <%= @nearby_documents.length %> document <br> 
+<% @nearby_documents.each do |document| %> 
 
     <div>
         <%= document.location.name %> <%= link_to "#{document.file_name}", "/documents/#{document.id}" %>
