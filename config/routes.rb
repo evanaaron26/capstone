@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
     
+    post '/user_documents/new' => 'user_documents#new'
+    
     get '/' => 'users#index'
     get '/signup' => 'users#new'
     post '/users' => 'users#create'

@@ -1,19 +1,23 @@
 
 <h3>Documents </h3>
 
-<br> You have <%= @nearby_documents.length %> document <br> 
-<% @nearby_documents.each do |document| %> 
-
-    <div>
-        <%= document.location.name %> <%= link_to "#{document.file_name}", "/documents/#{document.id}" %>
-    </div>   
-<% end %>
-
 <% if @documents.length == 0 %> 
-<h1> hello </h1>
+<h3> There are no documents </h3>
 <% end %> 
 
-<h3>Add Document</h3>
+<h3>My Nearby Documents</h3>
+
+<% @my_nearby_documents.each do |document| %> 
+<li><%= document.file_name %> <%= link_to "#{document.file_name}", "/documents/#{document.id}" %></li>
+<% end %> 
+
+
+<h3>Documents I've Created</h3>
+<% @my_documents.each do |document| %> 
+<li><%= document.file_name %> <%= link_to "#{document.file_name}", "/documents/#{document.id}" %></li>
+<% end %> 
+
+<h3>Add a Document</h3>
 
 <%= form_tag('/documents', multipart: true, method: :post) do %>
 
