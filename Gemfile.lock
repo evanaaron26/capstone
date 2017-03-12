@@ -97,6 +97,8 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    paperclip-ghostscript (0.1.0)
+      paperclip
     pg (0.19.0)
     puma (3.7.0)
     rack (2.0.1)
@@ -175,11 +177,12 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.2)
-  geocoder
+  geocoder (~> 1.4)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
   paperclip (~> 5.0.0)
+  paperclip-ghostscript
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.1)

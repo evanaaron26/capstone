@@ -6,7 +6,10 @@ class DocumentsController < ApplicationController
         all_documents = Document.all 
         @nearby_documents = []
         all_documents.each do |document|
-            if document.location.distance_to(user.current_location) < 1
+            p '_________________________________________'
+            p current_user.current_location
+            p document.location.distance_to(current_user.current_location)
+            if document.location.distance_to(current_user.current_location) < 1
                 @nearby_documents << document 
             end
         end
