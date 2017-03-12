@@ -1,5 +1,10 @@
-<p><%= link_to image_tag(@document.image.url(:medium)), @document.image.url %>
-</p>
+<h3>File Type: <%= @document.doc_content_type %></h3>
+
+<% if @document.doc_content_type == "application/pdf" %>
+    Link to File: <%= link_to @document.file_name, @document.doc.url, target: "_blank" %>
+<% else %>
+    <%= link_to image_tag(@document.doc.url), @document.doc.url %>
+<% end %>
 
 
 <h3> Distance to document </h3>

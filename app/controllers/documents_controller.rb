@@ -51,7 +51,7 @@ class DocumentsController < ApplicationController
             )
         @location.save
         @document = Document.new(
-            image: params[:image],
+            doc: params[:doc],
             file_name: params[:file_name],
             location_id: params[:location][:location_id],
             file_text: params[:file_text]                  
