@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.document-index {
+    width: 100%;
+    height: 350px;
+}
