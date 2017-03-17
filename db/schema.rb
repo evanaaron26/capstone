@@ -19,16 +19,8 @@ ActiveRecord::Schema.define(version: 20170312210518) do
     t.string   "file_name"
     t.text     "file_text"
     t.integer  "location_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.string   "document_file_name"
-    t.string   "document_content_type"
-    t.integer  "document_file_size"
-    t.datetime "document_updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "doc_file_name"
     t.string   "doc_content_type"
     t.integer  "doc_file_size"
@@ -65,8 +57,10 @@ ActiveRecord::Schema.define(version: 20170312210518) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "current_location"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "current_latitude"
+    t.string   "current_longitude"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
 end
