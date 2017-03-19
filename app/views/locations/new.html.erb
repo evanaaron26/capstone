@@ -32,9 +32,35 @@
     <%= text_field_tag :name %>
     <br>
     <br>
-    Address`
+    Address
     <%= text_field_tag :address %>
     <br>
     <br>
     <%= submit_tag "Add new location", class: "btn btn-info" %>   
 <% end %>  
+
+<br>
+<br>
+
+<div id="map"></div>
+
+<script>
+
+function myMap() {
+
+    var uluru = {lat: <%= current_user.current_longitude %>, lng: <%= current_user.current_latitude %> };
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 16,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  }
+  
+</script>
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_aegqAfOFugLvCPr3bu_OIVW9W2hMeoE&callback=myMap">
+</script>

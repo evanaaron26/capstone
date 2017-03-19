@@ -24,7 +24,7 @@ class LocationsController < ApplicationController
 
         @location.save
         flash[:success] = "location created"
-        redirect_to "/documents"
+        redirect_to "/documents/new"
     end 
 
     def users

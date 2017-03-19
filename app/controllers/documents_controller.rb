@@ -91,7 +91,7 @@ class DocumentsController < ApplicationController
         @document = Document.find(params[:id])
         @document.destroy
         flash[:success] = "Document deleted"
-        redirect_to "/documents/new"
+        redirect_to "/documents"
     end
 
 end
