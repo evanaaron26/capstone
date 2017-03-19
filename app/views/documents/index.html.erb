@@ -31,40 +31,6 @@
 <li><%= document.file_name %> <%= link_to "#{document.file_name}", "/documents/#{document.id}" %></li>
 <% end %> 
 
-<h3>Add a Document</h3>
-
-<%= form_tag('/documents', multipart: true, method: :post) do %>
-
-
-    file name
-    <%= text_field_tag :file_name %>
-    <br>
-    <br> 
-    Image
-    <br>
-    <%= file_field_tag :doc %>
-    <br>
-    file text
-    <br>
-  <!--   < %= text_field_tag :file_text %> -->
-    <%= text_area_tag(:file_text, nil,  
-      :rows => 10, :cols => 50) %>  
-    <br/>
-    <br/>
-    <%= collection_select(:location, :location_id, @locations, :id, :name) %>
-    <br>
-    <br>
-    <%= submit_tag "Add new document", class: "btn btn-info" %>
-    <br> 
-    <br>
-<% end %>
-
-<%= form_tag '/locations/new', method: :get do %>
-    
-    <%= submit_tag "Add new location", class: "btn btn-info" %>
-   
-<% end %>
-
 <br>
 <br>
 
