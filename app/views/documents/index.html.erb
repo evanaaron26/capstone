@@ -65,27 +65,16 @@
    
 <% end %>
 
-<!-- <p>Your coordinates.</p> -->
-
-<p id="latitude"><%= current_user.current_latitude %></p>
-<p id="longitude"><%= current_user.current_longitude %></p>
+<br>
+<br>
 
 <div id="map"></div>
 
-
 <script>
 
-function getLongitude()){
-    var longitude = document.getElementById('longitude').innerHTML;   
-}
-function getLatitude(){
-    var latitude = document.getElementById('latitude').innerHTML;
-}
-
 function myMap() {
-    console.log(lng);
-    console.log(lat);
-    var uluru = {lat: lat, lng: lng};
+
+    var uluru = {lat: <%= current_user.current_longitude %>, lng: <%= current_user.current_latitude %> };
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 16,
       center: uluru
@@ -96,16 +85,11 @@ function myMap() {
     });
   }
   
-
-myFirstPromise.then((successMessage)
-
-    </script>
+</script>
 
 
-
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_aegqAfOFugLvCPr3bu_OIVW9W2hMeoE&callback=myMap">
-    </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_aegqAfOFugLvCPr3bu_OIVW9W2hMeoE&callback=myMap">
+</script>
 
 
 </body>
