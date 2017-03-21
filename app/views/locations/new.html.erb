@@ -16,16 +16,19 @@
 
 <% if current_user %>
      <%= link_to "Home", "/documents" %> 
-     - 
      <% @user = User.find(current_user.id) %>
      <%= @user.current_location %> 
-     - 
+     
      <%= link_to "update current location", "/users/#{current_user.id}/edit" %>
       <br> 
-      <h5> Current user email </h5>
+      <br>
+      <h5> Current user email </h5> 
+      <br>
      <%= @user.email %> 
+     
 <% end %>
-
+    <br>
+    <br>
 
 <%= form_tag '/locations', method: :post do %>
     Location name

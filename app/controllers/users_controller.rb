@@ -27,7 +27,7 @@ class UsersController < ApplicationController
             flash[:warning] = "Invalid password"
             redirect_to '/signup'
         end 
-    end  
+    end 
 
     def edit 
         @user = User.find(current_user.id)
@@ -52,5 +52,8 @@ class UsersController < ApplicationController
         flash[:success] = "Location updated"
         redirect_to "/documents" 
     end 
-
 end
+
+
+
+

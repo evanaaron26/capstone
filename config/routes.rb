@@ -26,4 +26,6 @@ Rails.application.routes.draw do
     get '/locations/users/:id' => 'locations#users'
     post '/locations/useradd' => 'locations#useradd'
 
+    get '/test_email' => 'documents#email'
+
 end
