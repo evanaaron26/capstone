@@ -2,78 +2,61 @@
     
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('/img/documents.jpg')">
-        <!-- <div class="container"> -->
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h2>Add A Document</h2>
-                        <hr class="small">
-                        <span class="subheading">Please add a document below</span>
+
+
+<header class="intro-header" style="background-image: url('/img/documents.jpg')">
+    <!-- <div class="container"> -->
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <div class="black">
+                    <h1>Add A Document</h1>
+                    <hr class="small">
+                    <h3>Upload a document using the form below.</h3>
+                    <span class="subheading"></span>
                     </div>
                 </div>
             </div>
-      <!--   </div> -->
-    </header>
+        </div>
+  <!--   </div> -->
+</header>
 
-    
+<div class="document">
+<div class="document-new">
 
+    <%= form_tag('/documents', multipart: true, method: :post) do %>
+        <div class="form-center">
+            <h2>Document Name</h2>
 
-<h3> Add a document </h3>
-<br>
-<% @documents.each do |document| %> 
+            <%= text_field_tag :file_name %>
+          
+            <h2>File  (ex: jpg, pdf, gif, png)</h2>
+            
+            <div class="choose-file">
+                <%= file_field_tag :doc %>
+            </div>            
 
-    <div>
-        <h4><%= link_to "#{document.file_name}", "/documents/#{document.id}" %></h4>
-    </div>
-    <div>
-        <h5><%= document.file_text %></h5>
-        <h5><%= document.location.name %></h5>
-        <h5><%= document.location.latitude %></h5>
-        <h5><%= document.location.longitude %></h5>
+            <h2>Text (optional)</h2>
 
-    </div>
-<% end %>
+            <%= text_area_tag(:file_text, nil,  
+              :rows => 5, :cols => 40) %>  
+            <br>
+            <br>
+            <%= collection_select(:location, :location_id, @locations, :id, :name) %> 
+            <br>
+            <br>
+            <%= submit_tag "Add new document", class: "btn btn-info" %>
+        </div>
+    <% end %>
+        <br>
+    <%= form_tag '/locations/new', method: :get do %>
+        <div class="form-center">
+            <%= submit_tag "Add new location", class: "btn btn-info" %>
+        </div>
+    <% end %>
 
-<% if @documents.length == 0 %> 
-<p> You have no documents </p>
-<% end %> 
-<br>
-
-<%= form_tag('/documents', multipart: true, method: :post) do %>
-
-    file_name
-    <%= text_field_tag :file_name %>
-    <br>
-    <br>
-    image
-     <%= file_field_tag :doc %>
-    <br>
-    <br>
-    file_text
-    <%= text_area_tag(:file_text, nil,  
-      :rows => 10, :cols => 50) %>  
-    <br>
-    <br>
-    <%= collection_select(:location, :location_id, @locations, :id, :name) %> 
-    <br> 
-    <br> 
-    <%= submit_tag "Add new document", class: "btn btn-info" %>
-    <br> 
-    <br> 
-<% end %>
-
-<%= form_tag '/locations/new', method: :get do %>
-    
-    <%= submit_tag "Add new location", class: "btn btn-info" %>
-   
-<% end %>
-
-
-   
-   
-
-
+</div>
+</div>
 
 
 

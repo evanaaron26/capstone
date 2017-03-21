@@ -14,6 +14,14 @@
  *= require_self
  */
 
+body {
+    background-color: #88644C;
+}
+
+.black {
+    color: #000;
+}
+
 .document-index {
     background-image: url('/img/documents.jpg'); 
     min-height: 500px;
@@ -32,6 +40,25 @@
     width: 50%;
 }
 
+.document {
+    background-color: #D7CCB2;
+    
+}
+
+.form-center {
+    text-align: center;
+}
+
+.choose-file {
+    width: 200px;
+    margin: auto;
+}
+
+.document-new {
+    padding: 20px 0 60px;
+    width: 450px; 
+    margin: auto;
+}
 /*.intro-header {
     background-color: rgba(255, 255, 255, 0.1);
     opacity: 0.1;
