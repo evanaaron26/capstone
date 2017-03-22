@@ -3,60 +3,65 @@
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
 
-
-<header class="intro-header" style="background-image: url('/img/documents.jpg')">
-    <!-- <div class="container"> -->
+<div class="document">
+<div class="document-heading">
+<header class="intro-header" style="background-image: url('/img/documents-new.jpg')">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading">
                     <div class="black">
                     <h1>Add A Document</h1>
-                    <hr class="small">
                     <h3>Upload a document using the form below.</h3>
                     <span class="subheading"></span>
                     </div>
                 </div>
             </div>
         </div>
-  <!--   </div> -->
 </header>
+</div>
+</div>
 
 <div class="document">
-<div class="document-new">
 
+<div class="space">
+</div>
+
+<table class="doc-new">
     <%= form_tag('/documents', multipart: true, method: :post) do %>
-        <div class="form-center">
-            <h2>Document Name</h2>
-
-            <%= text_field_tag :file_name %>
-          
-            <h2>File  (ex: jpg, pdf, gif, png)</h2>
+            <tr>
+            <td><h2>Document Name</h2></td>
+            <td class="choose-file"><%= text_field_tag :file_name %></td>
+            </tr>
+            <tr>
+            <td><h2>File  (ex: jpg, pdf, gif, png)</h2></td>
             
-            <div class="choose-file">
-                <%= file_field_tag :doc %>
-            </div>            
-
-            <h2>Text (optional)</h2>
-
-            <%= text_area_tag(:file_text, nil,  
-              :rows => 5, :cols => 40) %>  
-            <br>
-            <br>
-            <%= collection_select(:location, :location_id, @locations, :id, :name) %> 
-            <br>
-            <br>
-            <%= submit_tag "Add new document", class: "btn btn-info" %>
-        </div>
+            <td class="choose-file"><%= file_field_tag :doc %></td>
+            </tr>
+            <tr>
+            <td><h2>Text (optional)</h2></td>
+            <td class="choose-file"><%= text_area_tag(:file_text, nil,  
+              :rows => 5, :cols => 40) %></td>
+            </tr>
+            <tr>
+            <td><h2>Add a Location</h2></td>
+            <td class="choose-file"><%= collection_select(:location, :location_id, @locations, :id, :name) %></td>
+            </tr>
+            <tr>
+            <td></td>
+            <td><%= submit_tag "Add new document", class: "btn btn-info submit" %></td>
+            </tr>
     <% end %>
-        <br>
-    <%= form_tag '/locations/new', method: :get do %>
-        <div class="form-center">
-            <%= submit_tag "Add new location", class: "btn btn-info" %>
-        </div>
-    <% end %>
+    <%#= form_tag '/locations/new', method: :get do %>
+            <tr>
+            <td></td>
+            <td><%#= submit_tag "Add new location", class: "btn btn-info submit" %></td>
+            </tr>
+            </table>
+    <%# end %>
+    <div class="space">
+    </div>
+</div>
 
-</div>
-</div>
 
 
 

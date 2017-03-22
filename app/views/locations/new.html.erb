@@ -1,49 +1,44 @@
 
-
+<div class="document">
+<div class="document-heading">
   <header class="intro-header" style="background-image: url('/img/map.jpg')">
+        <!-- <div id="location-heading"> -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h2>Add A New Location</h2>
-                        <hr class="small">
-                        <span class="subheading">Add A New Location Below</span>
+                    <div class="black">
+                        <h1 class="location-heading">Add A New Location</h1>
+                        <h3 class="location-heading">Add A New Location Below</h3>
                     </div>
+                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
     </header>
+</div>
+</div>
 
+<div class="document">
 <% if current_user %>
      <%= link_to "Home", "/documents" %> 
      <% @user = User.find(current_user.id) %>
      <%= @user.current_location %> 
      
      <%= link_to "update current location", "/users/#{current_user.id}/edit" %>
-      <br> 
-      <br>
       <h5> Current user email </h5> 
-      <br>
      <%= @user.email %> 
      
 <% end %>
-    <br>
-    <br>
 
 <%= form_tag '/locations', method: :post do %>
     Location name
     <%= text_field_tag :name %>
-    <br>
-    <br>
     Address
     <%= text_field_tag :address %>
-    <br>
-    <br>
     <%= submit_tag "Add new location", class: "btn btn-info" %>   
 <% end %>  
-
-<br>
-<br>
 
 <div id="map"></div>
 
@@ -67,3 +62,4 @@ function myMap() {
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_aegqAfOFugLvCPr3bu_OIVW9W2hMeoE&callback=myMap">
 </script>
+</div> 

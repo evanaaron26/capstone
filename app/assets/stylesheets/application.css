@@ -15,11 +15,13 @@
  */
 
 body {
-    background-color: #88644C;
+    background-color: #BA4A00;
 }
 
 .black {
     color: #000;
+    width: 500px;
+    margin: auto;
 }
 
 .document-index {
@@ -41,23 +43,66 @@ body {
 }
 
 .document {
-    background-color: #D7CCB2;
-    
+    background-color: #DCDCDC;
+    border-radius: 10px; 
 }
 
 .form-center {
     text-align: center;
 }
 
+.table-center {
+    /*text-align: center;*/
+}   
+
+.table-inside {
+    background-color: blue;
+    
+}
+
 .choose-file {
-    width: 200px;
-    margin: auto;
+    font-size: 16px;
 }
 
 .document-new {
     padding: 20px 0 60px;
     width: 450px; 
     margin: auto;
+}
+
+
+.doc-new tr td:first-child{
+    text-align: right;
+    vertical-align: text-top;
+}
+
+.doc-new tr td {
+    padding: 5px 8px;
+}
+
+.space {
+    height: 30px;
+}
+
+table.doc-new {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.submit {
+    background-color: #669999;
+    border-color: #669999;
+}
+
+.document-heading{
+    width: 99%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.location-heading {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
 }
 /*.intro-header {
     background-color: rgba(255, 255, 255, 0.1);
