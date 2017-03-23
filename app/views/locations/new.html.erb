@@ -20,27 +20,52 @@
 </div>
 </div>
 
+
 <div class="document">
-<% if current_user %>
-     <%= link_to "Home", "/documents" %> 
-     <% @user = User.find(current_user.id) %>
-     <%= @user.current_location %> 
-     
-     <%= link_to "update current location", "/users/#{current_user.id}/edit" %>
-      <h5> Current user email </h5> 
-     <%= @user.email %> 
-     
+
+<div class="space">
+</div>
+
+<table class="doc-new">
+
+
+  <tr>
+      <% if current_user %>
+    <%#= link_to "Home", "/documents" %>
+      <% @user = User.find(current_user.id) %>
+    <td><h3><%= @user.current_location %></h3></td>
+    <td><h2><%= link_to "update current location", "/users/#{current_user.id}/edit", class: "location-link" %></h2></td>
+  </tr>
+  <tr>
+    <td><h2> Current user email </h2></td>
+    <td><h2><%= @user.email %></h2></td>
 <% end %>
+  </tr> 
 
 <%= form_tag '/locations', method: :post do %>
-    Location name
-    <%= text_field_tag :name %>
-    Address
-    <%= text_field_tag :address %>
-    <%= submit_tag "Add new location", class: "btn btn-info" %>   
+
+  <tr>
+    <td><h2> Location name</h2></td>
+    <td>   <%= text_field_tag :name %></td>
+  </tr>
+  <tr>
+    <td><h2> Address </h2></td>
+    <td>   <%= text_field_tag :address %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>  <%= submit_tag "Add new location", class: "btn btn-info submit" %></td>
+</tr>
 <% end %>  
 
-<div id="map"></div>
+  <tr>
+    <td colspan="2"><div id="map"></div></td>
+  </tr>
+
+</table>
+
+<div class="space">
+</div>
 
 <script>
 
@@ -63,3 +88,6 @@ function myMap() {
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_aegqAfOFugLvCPr3bu_OIVW9W2hMeoE&callback=myMap">
 </script>
 </div> 
+
+</div>
+

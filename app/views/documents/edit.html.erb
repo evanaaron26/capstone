@@ -1,4 +1,6 @@
+
 <h1>Edit document </h1>
+
 
 <%= form_tag "/documents/#{@document.id}", method: :patch do %> 
 <div> 
@@ -17,5 +19,8 @@
 <%= submit_tag "update the document", class: "btn btn-info" %> 
 </div>
 <% end %>
+
+
+
 
 

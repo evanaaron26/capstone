@@ -39,12 +39,13 @@ body {
 
 #map {
     height: 300px;
-    width: 50%;
+    width: 100%;
 }
 
 .document {
     background-color: #DCDCDC;
     border-radius: 10px; 
+  /*  vertical-align: middle;*/
 }
 
 .form-center {
@@ -73,11 +74,13 @@ body {
 
 .doc-new tr td:first-child{
     text-align: right;
-    vertical-align: text-top;
+    border: 1px solid black;
 }
 
 .doc-new tr td {
     padding: 5px 8px;
+    border: 1px solid black;
+    /*vertical-align: text-top;*/
 }
 
 .space {
@@ -87,6 +90,7 @@ body {
 table.doc-new {
     margin-left:auto;
     margin-right:auto;
+    border: 1px solid black;
 }
 
 .submit {
@@ -103,6 +107,10 @@ table.doc-new {
 .location-heading {
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 10px;
+}
+
+.location-link {
+    color: #669999;
 }
 /*.intro-header {
     background-color: rgba(255, 255, 255, 0.1);

@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     end 
 
     def update
-        @user = User.find(params[:id])
+
         first_result = Geocoder.search(params[:current_location]).first
         long_lat = Geocoder.coordinates(first_result.address)
         longitude = long_lat.first  
@@ -49,8 +49,9 @@ class UsersController < ApplicationController
             )
 
         @user.save
+
         flash[:success] = "Location updated"
-        redirect_to "/documents" 
+        redirect_to "/locations/new" 
     end 
 end
 

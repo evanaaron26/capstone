@@ -45,6 +45,8 @@ class DocumentsController < ApplicationController
 
     def create 
         # user = User.find(current_user.id)
+        p "==================params=================="
+        p params
         @user = User.find(current_user.id)
         
         @location = Location.find_or_create_by(
@@ -68,7 +70,7 @@ class DocumentsController < ApplicationController
                 )
             @user_document.save
 
-            ExampleMailer.welcome_email(@user).deliver_later
+            # ExampleMailer.welcome_email(@user).deliver_later
             flash[:success] = "document created"
             redirect_to '/documents'
         else

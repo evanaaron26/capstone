@@ -1,15 +1,41 @@
-<h1>Edit Location </h1>
 
+
+<div class="space">
+</div><div class="space">
+</div><div class="space">
+</div><div class="space">
+</div>
+
+<div class="document">
+
+<div class="space">
+</div>
+
+<table class="doc-new">
+
+
+<tr>
+<td>
+<td><h1>Update Your Location </h1></td>
+</td>
+</tr>
+
+<tr>
 <%= form_tag "/users/#{current_user.id}", method: :patch do %> 
 <div> 
-    <%= label_tag :current_location %> 
-    <%= text_field_tag :current_location, size: 90, id: 'current_location' %> 
+    <td><h2><%= label_tag :current_location %></h2></td>
+    <td><h2><%= text_field_tag :current_location, size: 90, id: 'current_location' %></h2></td>
 </div>
-<br
+
 <div>
-<%= submit_tag "update the location", class: "btn btn-info" %> 
+<td><%= submit_tag "update the location", class: "btn btn-info submit" %></td>
 </div>
 <% end %>
+</tr>
+
+</table>
+</div>
+
 
 <script>
 
