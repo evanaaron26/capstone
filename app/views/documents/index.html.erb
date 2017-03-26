@@ -23,58 +23,50 @@
 </div>
 
 
-  <div class="left-col">
+  <div class="clear-left-document">
     <% if @documents.length == 0 %> 
     <h2> There are no documents </h2>
     <% end %> 
   </div>
 
-  <div class="right-col"><h2>
-  </div>
-
-  <div class="clear-left"></div>
-
-
-
-  <div class="left-col">
+  <div class="clear-left-document">
     <h2>My Nearby Documents</h2>
   </div>
 
-  <div class="right-col">
+
+
     <% @my_nearby_documents.each do |document| %> 
-    <h2><%= document.file_name %><%= link_to "#{document.file_name}", "/documents/#{document.id}" %></li></h2>
+        <div class="clear-left-document-center">
+          <h3><%= link_to "#{document.file_name}", "/documents/#{document.id}" %></li></h3>
+        </div>
     <% end %> 
-  </div>
-
-  <div class="clear-left"></div>
 
 
 
-  <div class="left-col">
+  <div class="clear-left-document">
     <h2>Documents I've Created</h2>
   </div>
 
-  <div class="right-col">
-    <% @my_documents.each do |document| %> 
-    <h2><%= document.file_name %> <%= link_to "#{document.file_name}", "/documents/#{document.id}" %></h2>
+  <!-- <div class="clear-left-document-left"> -->
+
+  <% @my_documents.each do |document| %> 
+    <div class="clear-left-document-center">
+      <h3><%= link_to "#{document.file_name}", "/documents/#{document.id}" %></h3>
+    </div>
   <% end %> 
 
-  <div class="clear-left"></div>
+  <!-- </div> -->
 
-
- 
+<div class="space">
 </div>
 
-
 <div id="map"></div>
-
-
 
 
 <div class="space">
 </div>
 
-
+</div>
 
 <script>
 

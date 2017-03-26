@@ -29,7 +29,7 @@ body {
 }
 
 .right-col {
-/*    background-color: blue;*/
+    background-color: blue;
     float: left;
     width: 50%;
     padding: 4px 10px;
@@ -41,7 +41,30 @@ body {
 .clear-left {
     height: 1px;
     clear: left;
-/*    border: 1px solid black;*/
+    text-align: center;
+    border: 1px solid black;
+   /* margin-left: centered;
+    margin-right: centered;*/
+}
+
+.clear-left-document {
+    height: 50px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.clear-left-document-center {
+    height: 50px;
+    /*clear: left;*/
+    text-align: left;
+    border: 1px solid black;
+    width: 400px;
+    margin: auto;
+}
+
+.clear-left-document-left {
+    text-align: center;
+    /*clear: left;*/
 }
 
 .form-wide {
@@ -80,7 +103,7 @@ body {
 .document {
     background-color: #DCDCDC;
     border-radius: 10px; 
-  /*  vertical-align: middle;*/
+   
 }
 
 .form-center {
