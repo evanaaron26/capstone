@@ -1,26 +1,67 @@
-
-<h1>Edit document </h1>
-
-
-<%= form_tag "/documents/#{@document.id}", method: :patch do %> 
-<div> 
-    <%= label_tag :file_name %> 
-    <%= text_field_tag :file_name, @document.file_name %> 
+<div class="document">
+<div class="document-heading">
+  <header class="intro-header" style="background-image: url('/img/map.jpg')">
+        <!-- <div id="location-heading"> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                    <div class="black">
+                        <h1 class="location-heading">Edit Your Document</h1>
+                        <h3 class="location-heading">Edit Your Document Below</h3>
+                    </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </header>
 </div>
-<br>
-<div>
-<div> 
-    <%= label_tag :file_text %> 
-    <br>
+</div>
+
+
+
+<div class="document">
+
+<div class="space">
+</div>
+
+<div class="form-container">
+
+
+    <div class="left-col">
+        <h2><%= form_tag "/documents/#{@document.id}", method: :patch do %></h2>
+        <h2><%= label_tag :file_name %></h2>
+    </div>
+    <div class="right-col">
+        <h2><%= text_field_tag :file_name, @document.file_name %></h2>
+    </div>
+    <div class="clear-left"></div>
+
+
+    <div class="left-col">
+    <h2><%= label_tag :file_text %></h2>
+    </div>
+    <div class="right-col">
     <%= text_area_tag(:file_text, @document.file_text,  
-      :rows => 20, :cols => 70) %>
-</div>
-<div>
-<%= submit_tag "update the document", class: "btn btn-info" %> 
-</div>
+      :rows => 15, :cols => 45) %>
+    </div>
+    <div class="clear-left"></div>
+
+    <div class="left-col">
+    </div>
+     <div class="right-col">
+    <%= submit_tag "update the document", class: "btn btn-info submit" %>
+    </div>
+    <div class="clear-left"></div>
+
+
 <% end %>
 
+<div class="space">
+</div>
 
+</div>
 
-
+</div>
 

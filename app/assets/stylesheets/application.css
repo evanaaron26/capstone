@@ -20,26 +20,28 @@ body {
 }
 
 .left-col {
-    background-color: red;
+/*    background-color: red;*/
     float: left;
     width: 50%;
     padding: 4px 10px;
     text-align: right;
+/*    border: 1px solid black;*/
 }
 
 .right-col {
-    background-color: blue;
+/*    background-color: blue;*/
     float: left;
     width: 50%;
     padding: 4px 10px;
     text-align: left;
     margin : 0px auto;
+/*    border: 1px solid black;*/
 }
 
 .clear-left {
     height: 1px;
-    
     clear: left;
+/*    border: 1px solid black;*/
 }
 
 .form-wide {
@@ -90,7 +92,7 @@ body {
 }   
 
 .table-inside {
-    background-color: blue;
+/*    background-color: blue;*/
     
 }
 
@@ -138,8 +140,17 @@ body {
 .location-link {
     color: #669999;
 }
+
+.btn-infox {
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif; 
+    font-size: 24px;
+}
 /*.intro-header {
     background-color: rgba(255, 255, 255, 0.1);
     opacity: 0.1;
 }
 */
+
+
+
+
