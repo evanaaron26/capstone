@@ -45,15 +45,22 @@ class DocumentsController < ApplicationController
 
     def create 
         # user = User.find(current_user.id)
-        p "==================params=================="
-        p params
         @user = User.find(current_user.id)
         
-        @location = Location.find_or_create_by(
+        # @location = Location.find_or_create_by(
+        #     name: params[:name],
+        #     latitude: params[:latitude],
+        #     longitude: params[:longitude]
+        #     )
+    
+    
+        @location = Location.new(
             name: params[:name],
             latitude: params[:latitude],
             longitude: params[:longitude]
             )
+        @location.save
+
 
         @document = Document.new(
             doc: params[:doc],
