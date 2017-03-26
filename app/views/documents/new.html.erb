@@ -23,47 +23,66 @@
 
 <div class="document">
 
+
 <div class="space">
 </div>
 
-<table class="doc-new">
-    <%= form_tag('/documents', multipart: true, method: :post) do %>
-            <tr>
-            <td><h2>Document Name</h2></td>
-            <td class="choose-file"><%= text_field_tag :file_name %></td>
-            </tr>
+            <div class="left-col">
+                <h2>Document Name</h2>
+            </div>
             
-            <tr>
-            <td><h2>File  (ex: jpg, pdf, gif, png)</h2></td>
-            
-            <td class="choose-file"><%= file_field_tag :doc %></td>
-            </tr>
-            <tr>
-            <td><h2>Text (optional)</h2></td>
-            <td class="choose-file"><%= text_area_tag(:file_text, nil,  
-              :rows => 5, :cols => 40) %></td>
-            </tr>
-            <tr>
-            <td><h2>Add a Location</h2></td>
-            <td class="choose-file"><%= collection_select(:location, :location_id, @locations, :id, :name) %></td>
-            </tr>
-            <tr>
-            <td></td>
-            <td><%= submit_tag "Add new document", class: "btn btn-info submit" %> 
-            <% end %></td>
-            </tr>
-   
-    <%#= form_tag '/locations/new', method: :get do %>
-            <tr>
-            <td></td>
-            <td><%#= submit_tag "Add new location", class: "btn btn-info submit" %></td>
-            </tr>
-            </table>
-    <%# end %>
-    <div class="space">
-    </div>
-</div>
+            <div class="right-col">
+                <h2><%= form_tag('/documents', multipart: true, method: :post) do %>
+                <%= text_field_tag :file_name %></h2>
+            </div>
 
+            <div class="clear-left"></div>
+
+
+            <div class="left-col">
+                <h2>File  (ex: jpg, pdf, gif, png)</h2>
+            </div>
+            
+            <div class="right-col">
+                <h2><%= file_field_tag :doc %></h2>
+            </div>
+            
+            <div class="clear-left"></div>
+
+            <div class="left-col">
+                <h2>Text (optional)</h2>
+            </div>
+
+            <div class="right-col">
+                <%= text_area_tag(:file_text, nil, :rows => 5, :cols => 40) %>
+            </div>
+
+            <div class="clear-left"></div>
+
+            <div class="left-col">
+                <h2>Add a Location</h2>
+            </div>
+
+            <div class="right-col">
+            <%= collection_select(:location, :location_id, @locations, :id, :name) %>
+            </div>
+
+            <div class="clear-left"></div>
+
+            <div class="left-col">
+            </div>
+
+            <div class="right-col">
+            <%= submit_tag "Add new document", class: "btn btn-info submit" %> 
+            </div>
+
+            <div class="clear-left"></div>
+   
+
+            <% end %>
+<div class="space">
+</div>
+</div>
 
 
 

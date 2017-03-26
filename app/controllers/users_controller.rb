@@ -30,11 +30,12 @@ class UsersController < ApplicationController
     end 
 
     def edit 
+        
         @user = User.find(current_user.id)
     end 
 
     def update
-
+        @user = User.find(current_user.id)
         first_result = Geocoder.search(params[:current_location]).first
         long_lat = Geocoder.coordinates(first_result.address)
         longitude = long_lat.first  

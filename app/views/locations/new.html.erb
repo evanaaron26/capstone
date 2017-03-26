@@ -21,48 +21,56 @@
 </div>
 
 
+
 <div class="document">
 
 <div class="space">
 </div>
 
-<table class="doc-new">
+<div class="form-container">
+      
+        <div class="left-col">
+             <h2><% @user = User.find(current_user.id) if current_user %>
+             <%= @user.current_location if current_user %></h2>
+        </div>
+
+        <div class="right-col"><h2>
+            <%= link_to "update current location", "/users/#{current_user.id}/edit", class: "location-link" %></h2>
+        </div>
+
+        <div class="clear-left"></div>
+
+        <div class="left-col">
+            <h2>Current user email</h2>
+        </div>
+
+        <div class="right-col">
+            <h2><%= @user.email if current_user %></h2>
+        </div>
+
+        <div class="clear-left"></div>
+
+      
+
+        <div class="left-col">
+            <h2>Location name</h2>
+            <h2>Address</h2>
+        </div>
+
+        <div class="right-col">
+            <%= form_tag '/locations', method: :post do %>
+            <h2><%= text_field_tag :name %></h2>
+            <h2><%= text_field_tag :address %></h2>
+            <h2><%= submit_tag "Add new location", class: "btn btn-info submit" %></h2>
+          <% end %>
+        </div>
+        <div class="clear-left"></div> 
+   
+</div> 
 
 
-  <tr>
-      <% if current_user %>
-    <%#= link_to "Home", "/documents" %>
-      <% @user = User.find(current_user.id) %>
-    <td><h3><%= @user.current_location %></h3></td>
-    <td><h2><%= link_to "update current location", "/users/#{current_user.id}/edit", class: "location-link" %></h2></td>
-  </tr>
-  <tr>
-    <td><h2> Current user email </h2></td>
-    <td><h2><%= @user.email %></h2></td>
-<% end %>
-  </tr> 
+<div id="map"></div>
 
-<%= form_tag '/locations', method: :post do %>
-
-  <tr>
-    <td><h2> Location name</h2></td>
-    <td>   <%= text_field_tag :name %></td>
-  </tr>
-  <tr>
-    <td><h2> Address </h2></td>
-    <td>   <%= text_field_tag :address %></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>  <%= submit_tag "Add new location", class: "btn btn-info submit" %></td>
-</tr>
-<% end %>  
-
-  <tr>
-    <td colspan="2"><div id="map"></div></td>
-  </tr>
-
-</table>
 
 <div class="space">
 </div>

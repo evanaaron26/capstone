@@ -14,10 +14,42 @@
  *= require_self
  */
 
+
 body {
     background-color: #BA4A00;
 }
 
+.left-col {
+    background-color: red;
+    float: left;
+    width: 50%;
+    padding: 4px 10px;
+    text-align: right;
+}
+
+.right-col {
+    background-color: blue;
+    float: left;
+    width: 50%;
+    padding: 4px 10px;
+    text-align: left;
+}
+
+.clear-left {
+    height: 1px;
+    
+    clear: left;
+}
+
+.form-wide {
+    text-align: center;
+    padding: 4px;
+}
+
+.form-container{
+    margin-left:auto;
+    margin-right:auto;
+}
 .black {
     color: #000;
     width: 500px;
@@ -74,12 +106,10 @@ body {
 
 .doc-new tr td:first-child{
     text-align: right;
-    border: 1px solid black;
 }
 
 .doc-new tr td {
     padding: 5px 8px;
-    border: 1px solid black;
     /*vertical-align: text-top;*/
 }
 
@@ -87,11 +117,6 @@ body {
     height: 30px;
 }
 
-table.doc-new {
-    margin-left:auto;
-    margin-right:auto;
-    border: 1px solid black;
-}
 
 .submit {
     background-color: #669999;
