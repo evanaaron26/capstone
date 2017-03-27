@@ -42,7 +42,7 @@ class DocumentsController < ApplicationController
     end
 
     def new 
-        user = User.find(current_user.id)
+        User.find(current_user.id)
         @documents = user.documents
         @locations = Location.where(user_id: current_user.id)
     end 
