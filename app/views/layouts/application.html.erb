@@ -53,12 +53,22 @@
                 <a class="navbar-brand" href="/signup">Signup</a>
                 <a class="navbar-brand" href="/login">Login</a>
             <% end %> 
-            
-            </div>
 
+        </div> 
+            
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#"><% if current_user %><%= current_user.email %>
+                                <% else %>
+                                 There Is No Current User Logged In 
+                                 <% end %>
+                        </a>
+                    </li>
+                    <li>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </li>
                     <li>
                         <a href="/documents/new">Add Document</a>
                     </li>
@@ -71,6 +81,8 @@
            
                 </ul>
             </div>
+
+
         </div>
     </nav>
 
