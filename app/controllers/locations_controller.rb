@@ -16,15 +16,21 @@ class LocationsController < ApplicationController
     end 
 
     def create 
-        @location = Location.new(
-            name: params[:name],
-            address: params[:address],
-            user_id: current_user.id
-            )
-
+        p "===============params=========== from location create controller"
+        p params
+        if params[:name] == "" || params[:address] == ""
+            flash[:success] = "Location not saved. Complete both name and address."
+        else
+            @location = Location.new(
+                name: params[:name],
+                address: params[:address],
+                user_id: current_user.id
+                )
         @location.save
-        flash[:success] = "location created"
+            flash[:success] = "location created"
+        end
         redirect_to "/documents/new"
+
     end 
 
     def users

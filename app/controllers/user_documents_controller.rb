@@ -9,6 +9,8 @@ class UserDocumentsController < ApplicationController
         )
         @user_document.save
 
+        p @user_document
+
         ExampleMailer.welcome_email(@user).deliver_later
 
         redirect_to "/documents" 

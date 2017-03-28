@@ -2,15 +2,13 @@ class DocumentsController < ApplicationController
     def index
         user = User.find(current_user.id)
         @documents = user.documents
-        @locations = Location.where(user_id: current_user.id)
+        # @locations = Location.where(user_id: current_user.id)
+        @locations = Location.all
+        p @locations
+
         all_documents = Document.all 
         @nearby_documents = []
         all_documents.each do |document|
-            p "===================current_user.current_location"
-            p current_user.current_location
-            p "===================document"    
-            p document
-
             p document.location.distance_to(current_user.current_location)
             if document.location.distance_to(current_user.current_location) < 1
                 @nearby_documents << document 
@@ -43,7 +41,7 @@ class DocumentsController < ApplicationController
 
     def new 
         User.find(current_user.id)
-        @documents = user.documents
+        @documents = current_user.documents
         @locations = Location.where(user_id: current_user.id)
     end 
 
@@ -73,6 +71,7 @@ class DocumentsController < ApplicationController
             file_text: params[:file_text]                  
             )
 
+
         if @document.save
             @user_document = UserDocument.new(
                 user_id: current_user.id, 
@@ -81,7 +80,7 @@ class DocumentsController < ApplicationController
                 )
             @user_document.save
 
-            # ExampleMailer.welcome_email(@user).deliver_later
+            ExampleMailer.welcome_email(@user).deliver_later
             flash[:success] = "document created"
             redirect_to '/documents'
         else

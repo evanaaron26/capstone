@@ -2,13 +2,14 @@
 
 <%= form_tag '/login', method: :post do %>
 <div>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %> 
+    <%= label_tag :email %>&nbsp; &nbsp; &nbsp; &nbsp; 
+    <%= text_field_tag :email %><br><br>
 </div>
 <div>
     <%= label_tag :password %> 
-    <%= password_field_tag :password %> 
+    <%= password_field_tag :password %>
 </div>
+    <br><br>
     <%= submit_tag "Submit", class: "btn btn-info" %> 
 
 <% end %> 

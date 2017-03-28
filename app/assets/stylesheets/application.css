@@ -20,8 +20,8 @@ body {
 }
 
 .left-col {
-/*    background-color: red;*/
-    float: left;
+/*    background-color: red;
+*/    float: left;
     width: 50%;
     padding: 4px 10px;
     text-align: right;
@@ -29,7 +29,7 @@ body {
 }
 
 .right-col {
-   /* background-color: blue;*/
+/*    background-color: blue;*/
     float: left;
     width: 50%;
     padding: 4px 10px;
@@ -103,6 +103,7 @@ body {
 .document {
     background-color: #DCDCDC;
     border-radius: 10px; 
+
    
 }
 
@@ -147,7 +148,11 @@ body {
 .submit {
     background-color: #669999;
     border-color: #669999;
+/*    width: 65%;*/
 }
+
+
+
 
 .document-heading{
     width: 99%;

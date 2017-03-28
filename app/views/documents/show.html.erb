@@ -93,6 +93,43 @@
     </div>
 
 
+    <div class="left-col">
+        <h3>Add User</h3>
+    </div>
+    
+    <div class="right-col"><h3>
+        <%= form_tag "/user_documents/new", method: :post do %> 
+        <%#= label_tag :email, "Email" %> 
+        <%= hidden_field_tag :document, @document.id %>
+        <%= text_field_tag :email, "email" %>
+        <%= submit_tag "Add User", class: "btn btn-info submit" %> 
+        <% end %>
+        </h3>
+    </div>
+     
+    <div class="clear-left">
+    </div>
+
+    <div class="left-col">    
+        <h3>Users assigned </h3>
+    </div>
+
+    <div class="right-col">
+        <ul><% @document.users.each do |user| %> 
+        <li><h3><%= user.email %></h3></li>
+             <% end %>  
+        </ul>
+    </div>
+      <div class="clear-left">
+    </div>
+
+
+
+
+
+
+
+
 <div id="map"></div>
 <div class="space"></div>
 </div>
