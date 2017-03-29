@@ -148,11 +148,13 @@ body {
 .submit {
     background-color: #669999;
     border-color: #669999;
-/*    width: 65%;*/
+    width: 340px;
 }
 
-
-
+.new-submit {
+    width: 340px;
+    background-color: blue;
+}
 
 .document-heading{
     width: 99%;

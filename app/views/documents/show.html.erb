@@ -61,22 +61,22 @@
             <h2>Document text:</h2>
         </div>
         <div class="right-col">
-            <h3><%= @document.file_text %></h3>
+            <h4><%= @document.file_text %></h4>
         </div>
         <div class="clear-left"></div>
 
-                                    <% else %>
+            <% else %>
 
-                                        <div class="left-col">
-                                         <h2> Distance to document </h2>
-                                        </div>
-                                        <div class="right-col">
-                                            <h2><%= @document.location.distance_to(@current_user.current_location).to_i %> miles</h2>
-                                        </div>
-                                        <div class="clear-left"></div>
+                <div class="left-col">
+                 <h2> Distance to document </h2>
+                </div>
+                <div class="right-col">
+                    <h2><%= @document.location.distance_to(@current_user.current_location).to_i %> miles</h2>
+                </div>
+                <div class="clear-left"></div>
 
 
-                                    <% end %> 
+            <% end %> 
     <div class="left-col">
     </div>
     <div class="right-col">
@@ -98,13 +98,14 @@
     </div>
     
     <div class="right-col"><h3>
+
         <%= form_tag "/user_documents/new", method: :post do %> 
         <%#= label_tag :email, "Email" %> 
         <%= hidden_field_tag :document, @document.id %>
-        <%= text_field_tag :email, "email" %>
+        <%= text_field_tag :email, "email", size: 25 %>       
+        <br><br>
         <%= submit_tag "Add User", class: "btn btn-info submit" %> 
         <% end %>
-        </h3>
     </div>
      
     <div class="clear-left">
@@ -122,13 +123,6 @@
     </div>
       <div class="clear-left">
     </div>
-
-
-
-
-
-
-
 
 <div id="map"></div>
 <div class="space"></div>
